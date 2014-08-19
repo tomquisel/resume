@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Resume - Tom Quisel</title>
+
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="js-yaml.min.js"></script>
+        <script src="handlebars-v1.3.0.js"></script>
+
+        <script id="resume-yaml" type="text/yaml">
+            name: Tom Quisel
+            location: Santa Barbara, CA
+            github: https://github.com/tomquisel 
+            linkedin: https://www.linkedin.com/in/tomquisel
+            site: http://tomquisel.com
+            objective: To apply computer science, statistics, and machine learning to tackle the toughest and most important problems the the world has to offer. 
+            education:
+                -
+                    name: Carnegie Mellon University
+                    location: Pittsburgh, PA
+                    degree: BS in Computer Science
+                    GPA: 4.0 (4 pt scale)
+                    when: 2003-2007
+                    exchange: École Polytechnique Fédéral de Lausanne
+                -
+                    name: École Polytechnique Fédéral de Lausanne
+                    location: Lausanne, Switzerland
+                    when: Fall 2005 - Summer 2006
+                    note: exchange program
+            skills:
+                -
+                    name: languages
+                    items: python, R, C/C++, Java, SQL, Bash, JavaScript, HTML
+                -
+                    name: data analysis
+                    items: pandas, scipy/numpy, scikit-learn, statsmodels, R\{forecast}, Weka 
+                -
+                    name: techniques
+                    items: Classification, Regression, Function Optimization, Natural Language Processing, Bayesian Statistics, Significance Testing, Experimental Design, Time Series Analysis, Dimensonality Reduction, Control Systems
+                -
+                    name: big data
+                    items: Elasticsearch, MongoDB, MySQL, PostgreSQL, MapReduce, Twitter Storm, Redis
+            experience:
+                -
+                    title: Data Science Consultant
+                    location: Santa Barbara, CA
+                    when: July 2013 - Present
+                    highlights:
+                        - Performed big data analysis for the Dataclysm book with Christian Rudder
+                        - Built Linkedin user similarity algorithm for startup Collectively
+                -
+                    company: OkCupid
+                    title: Senior Data Scientist
+                    location: New York, NY
+                    when: Jan 2013 - Present
+                    highlights:
+                        - Used time series techniques to develop forecasts for key site metrics 
+                        - Created significance testing framework for email promotions and premium conversions, worked with designers to implement and test improvements that produced millions in incremental revenue for OkCupid
+                        - Developed recommendation system to give paying users a metered boost in activity using control theory
+                -
+                    company: OkCupid
+                    title: CTO / Director of Technology
+                    location: New York, NY
+                    when: Jun 2010 - Jan 2013
+                    highlights:
+                        - Provided servant leadership to our team of 10-15 software engineers, data scientists, and system administrators
+                        - Managed recruiting, hiring, and personnel decisions for all positions on the technology team
+                        - Provided strategic technical and product direction that allowed OkCupid to smoothly grow 7x in 2.5 years
+                        - Oversaw technical due diligence process during acquisition by IAC
+                        - Over 10 patents pending for technical innovations in OkCupid products
+                - 
+                    company: OkCupid
+                    title: Software Engineer
+                    location: New York, NY
+                    when: Jul 2007 - Jun 2010
+                    highlights:
+                        - Modeled response probabilities for messages sent on OkCupid, found that feature engineering and linear regression generalized better than more complex learners
+                        - Devised novel method for confidence adjusting compatibility scores based on Monte Carlo methods
+                        - Engineered statistical method to give users a relevant next matching question using past answers
+                        - Used Bayesian methods to improve estimates of user properties based on small amounts of data
+                - 
+                    company: Felix Naef, Swiss Institute for Experimental Cancer Research
+                    title: Bioinformatics Researcher
+                    location: Lausanne, Switzerland
+                    when: Mar 2006 - Jun 2007
+                    highlights:
+                        - Calculated p-value vs. rank plots to estimate fraction of cyclically expressed genes in Arabidopsis
+                        - Wrote an HMM to identify genes involved in the circadian rhythm of plants
+                        - Wrote data analysis tools in R
+                        - Coauthored research paper presenting results: http://genomebiology.com/2009/10/2/R17
+                -
+                    type: other
+                        -
+                            company: iTeleport
+                            title: Contract iPhone Developer
+                            when: 2009
+                        -
+                            company: Green Hills Software
+                            title: Software Engineering Intern
+                            when: 2005
+                        -
+                            company: Alex Rudnicky, CMU Speech Software Group
+                            title: Research Intern
+                            when: 2004
+
+        </script>
+
+        <script id="resume-template" type="text/x-handlebars-template">
+            <div class="entry">
+                <h1>{{name}}</h1>
+                <div class="body">
+                    {{name}}
+                </div>
+            </div>
+        </script>
+
+        <script type="text/javascript">
+            var template_source = $("#resume-template").html();
+            var template = Handlebars.compile(template_source);
+            var yaml_source = $("#resume-yaml").html();
+            var context = jsyaml.load(yaml_source);
+            var html = template(context);
+            document.write(html);
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
