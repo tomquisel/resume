@@ -7,7 +7,9 @@
         <title>Resume - Tom Quisel</title>
 
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" media="print" href="print.css"/>
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -16,7 +18,7 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="js-yaml.min.js"></script>
         <script src="handlebars-v1.3.0.js"></script>
-        <script src="swag.js"></script>
+        <script src="swag.min.js"></script>
         <script>Swag.registerHelpers(Handlebars);</script>
 
         <script id="resume-yaml" type="text/yaml">
@@ -33,20 +35,22 @@
                 -
                     name: linkedin.com/in/tomquisel
                     url: https://www.linkedin.com/in/tomquisel
-            objective: Use computer science, statistics, machine learning, and common sense to tackle the toughest and most important problems the the world has to offer. 
+            objective: Use computer science, statistics, and common sense to tackle the most challenging and important problems the the world has to offer.
             education:
                 -
                     name: Carnegie Mellon University
                     location: Pittsburgh, PA
                     degree: BS in Computer Science
-                    GPA: "4.0 / 4.0"
+                    gpa: "4.0"
+                    gpa_max: "4.0"
                     when: 2003 — 2007
                     exchange: École Polytechnique Fédéral de Lausanne
                 -
-                    name: École Polytechnique Fédéral de Lausanne
+                    name: EPFL
                     location: Lausanne, Switzerland
-                    degree: Computer Science exchange student
-                    GPA: "5.63 / 6.0"
+                    degree: Computer Science exchange
+                    gpa: "5.63"
+                    gpa_max: "6.0"
                     when: 2005 — 2006
                     note: exchange program
             selected_coursework:
@@ -57,68 +61,75 @@
                 - Probability and Computing
             skills:
                 -
-                    name: languages
-                    items: python, R, C/C++, Java, SQL, Bash, JavaScript, HTML
+                    name: Languages
+                    items: python, R, C/C++, Java, SQL, Bash, JavaScript
                 -
-                    name: data analysis
-                    items: pandas, scipy/numpy, scikit-learn, statsmodels, R{forecast}, Weka
+                    name: Data Analysis
+                    items: pandas, scipy, numpy, scikit-learn, statsmodels, R{forecast}, Weka, matplotlib, ggplot2
                 -
-                    name: techniques
-                    items: Classification, Regression, Function Optimization, Natural Language Processing, Bayesian Statistics, Significance Testing, Experimental Design, Time Series Analysis, Dimensonality Reduction, Control Systems
-                -
-                    name: big data
+                    name: Big Data
                     items: Elasticsearch, MongoDB, MySQL, PostgreSQL, MapReduce, Twitter Storm, Redis
+                -
+                    name: Techniques
+                    items: Classification, Regression, Function Optimization, Natural Language Processing, Bayesian Statistics, Significance Testing, Experimental Design, Time Series Analysis, Dimensonality Reduction, Control Systems
             experience:
                 -
+                    company: Self
                     title: Data Science Consultant
                     location: Santa Barbara, CA
-                    when: July 2013 - Present
+                    when: July 2013 — Present
                     highlights:
-                        - Performed big data analysis for the Dataclysm book with Christian Rudder
+                        - Technical advisor for The Impact Engine, a startup incubator
                         - Built Linkedin user similarity algorithm for startup Collectively
+                        - Performed big data analysis for the Dataclysm book with Christian Rudder
                 -
                     company: OkCupid
                     title: Senior Data Scientist
                     location: New York, NY
-                    when: Jan 2013 - Present
+                    when: Jan 2013 —  Present
                     highlights:
                         - Used time series techniques to develop forecasts for key site metrics 
-                        - Created significance testing framework for email promotions and premium conversions, worked with designers to implement and test improvements that produced millions in incremental revenue for OkCupid
+                        - Created significance testing framework for email promotions and premium conversions
+                        - worked with designers to implement and test improvements, creating millions in incremental revenue
                         - Developed recommendation system to give paying users a metered boost in activity using control theory
                 -
                     company: OkCupid
                     title: CTO / Director of Technology
                     location: New York, NY
-                    when: Jun 2010 - Jan 2013
+                    when: Jun 2010 —  Jan 2013
                     highlights:
-                        - Provided servant leadership to our team of 10-15 software engineers, data scientists, and system administrators
+                        - Provided servant leadership to tech team of 10-15 brilliant coworkers
                         - Managed recruiting, hiring, and personnel decisions for all positions on the technology team
-                        - Provided strategic technical and product direction that allowed OkCupid to smoothly grow 7x in 2.5 years
+                        - Provided strategic technical and product direction, allowing OkCupid to smoothly grow 7x in 2.5 years
                         - Oversaw technical due diligence process during acquisition by IAC
                         - Over 10 patents pending for technical innovations in OkCupid products
                 -
                     company: OkCupid
                     title: Software Engineer
                     location: New York, NY
-                    when: Jul 2007 - Jun 2010
+                    when: Jul 2007 —  Jun 2010
                     highlights:
-                        - Modeled response probabilities for messages sent on OkCupid, found that feature engineering and linear regression generalized better than more complex learners
+                        - Modeled response probabilities for messages sent on OkCupid, found that feature engineering and linear regression generalized better than complex learners
                         - Devised novel method for confidence adjusting compatibility scores based on Monte Carlo methods
                         - Engineered statistical method to give users a relevant next matching question using past answers
                         - Used Bayesian methods to improve estimates of user properties based on small amounts of data
                 -
-                    company: Felix Naef, Swiss Institute for Experimental Cancer Research
+                    company: EPFL
                     title: Bioinformatics Researcher
                     location: Lausanne, Switzerland
-                    when: Mar 2006 - Jun 2007
+                    when: Mar 2006 —  Jun 2007
                     highlights:
-                        - Calculated p-value vs. rank plots to estimate fraction of cyclically expressed genes in Arabidopsis
-                        - Wrote an HMM to identify genes involved in the circadian rhythm of plants
                         - Wrote data analysis tools in R
-                        - Coauthored research paper presenting results: http://genomebiology.com/2009/10/2/R17
+                        - Wrote HMM model in Java to identify genes involved in the circadian rhythm of plants
+                        - Calculated p-value vs. rank plots to estimate fraction of cyclically expressed genes in Arabidopsis
+                        - Coauthored research paper presenting results — http://genomebiology.com/2009/10/2/R17
                 -
                     other: true
                     items:
+                        -
+                            company: TechStars NYC
+                            title: Mentor
+                            when: 2013
                         -
                             company: iTeleport
                             title: Contract iPhone Developer
@@ -128,20 +139,21 @@
                             title: Software Engineering Intern
                             when: 2005
                         -
-                            company: Alex Rudnicky, CMU Speech Software Group
+                            company: CMU Speech Software Group
                             title: Research Intern
                             when: 2004
 
         </script>
 
         <script id="resume-template" type="text/x-handlebars-template">
-            <div class="container">
-                <div class="row heading">
-                    <div class="col-xs-6">
+            <div class="content">
+                <div class="myrow heading">
+                    <div class="left">
                         <p class="h1 name">{{name}}</p>
-                        {{title}} &mdash; <em>{{location}}</em>
+                        <span class="title">{{title}}</span> &mdash;
+                        <span class="location">{{location}}</span>
                     </div>
-                    <div class="col-xs-6">
+                    <div class="right">
                         <p class="text-right">
                             {{#each links}}
                                 <a href="{{url}}">{{name}}</a><br>
@@ -149,62 +161,68 @@
                         </p>
                     </div>
                 </div>
-                <hr>
                 {{#section objective name="Objective"}}
                     <p>{{this}}</p>
                 {{/section}}
                 {{#section education name="Education"}}
                     {{#each this}}
-                        <p class="school">
-                            {{name}}<br>
-                            {{location}} &mdash; {{when}}<br>
-                            {{degree}} <br>
-                            {{#if GPA}}
-                                GPA {{GPA}} <br>
-                            {{/if}}
-                        </p>
-                    {{/each}}
-                    <div class="coursework clearfix">
-                        <strong>Selected Coursework</strong><br>
-                        {{#each ../selected_coursework}}
-                            <div class="course">
-                                {{this}}
+                        <div class="school">
+                            <div class="group-name">{{name}}</div>
+                            <div class="pull-right text-right">
+                                <span class="date">{{when}}</span><br>
+                                <span class="location">{{location}}</span><br>
                             </div>
+                            {{degree}}<br>
+                            {{#if gpa}}
+                                GPA <strong>{{gpa}}</strong> / {{gpa_max}}
+                            {{/if}}
+                        </div>
+                    {{/each}}
+                    <div class="clearfix"></div>
+                {{/section}}
+                {{#section skills name="Skills"}}
+                    <div class="skills">
+                        {{#each this}}
+                            <div class="twocol-l"><strong>{{name}}</strong></div>
+                            <div class="twocol-r">{{items}}</div>
                         {{/each}}
                     </div>
                 {{/section}}
-                {{#section skills name="Skills"}}
-                    {{#ul this}}
-                        {{name}}: {{items}}<br>
-                    {{/ul}}
-                {{/section}}
                 {{#section experience name="Experience"}}
-                    {{#ul this}}
+                    {{#each this}}
                         {{#if other}}
-                            {{#ul items}}
-                                {{title}} {{company}} {{when}}
-                            {{/ul}}
+                            {{#each items}}
+                            <div class="clearfix">
+                                <div class="pull-right date">{{when}}</div>
+                                <span class="title">{{title}}</span>
+                                <span class="company-braces">&#123;</span><span class="group-name">{{company}}</span><span class="company-braces">&#125;</span>
+                            </div>
+                            {{/each}}
                         {{else}}
-                            {{title}}
-                            {{location}}
-                            {{when}}
+                        <div class="pull-right text-right">
+                            <span class="date">{{when}}</span><br>
+                            <span class="location">{{location}}</span><br>
+                        </div>
+                            <span class="title">{{title}}</span>
+                            {{#if company}}
+                                <span class="company-braces">&#123;</span><span class="group-name">{{company}}</span><span class="company-braces">&#125;</span>
+                            {{/if}}
+                        <br>
                             {{#ul highlights}}
                                 {{this}}
                             {{/ul}}
                         {{/if}}
-                    {{/ul}}
+                    {{/each}}
                 {{/section}}
             </div>
         </script>
 
         <script id="section-template" type="text/x-handlebars-template">
-            <div class="row">
-                <div class="col-xs-1 col-fixed">
-                    <p>
-                        <strong>{{name}}</strong>
-                    </p>
+            <div class="section">
+                <div class="section-header">
+                    {{name}}
                 </div>
-                <div class="col-xs-10 col-xs-11">
+                <div class="section-content">
                     {{inner}}
                 </div>
             </div>
