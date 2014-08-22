@@ -76,7 +76,7 @@
                     items: Classification, Regression, Function Optimization, Natural Language Processing, Bayesian Statistics, Significance Testing, Experimental Design, Time Series Analysis, Dimensonality Reduction, Control Systems
             experience:
                 -
-                    company: Self
+                    company: {name: Self}
                     title: Data Science Consultant
                     location: Santa Barbara, CA
                     when: July 2013 — Present
@@ -85,8 +85,7 @@
                         - Built Linkedin user similarity algorithm for startup Collectively
                         - Performed big data analysis for the Dataclysm book with Christian Rudder
                 -
-                    company: OkCupid
-                    company_url: http://www.okcupid.com/
+                    company: {name: OkCupid, url: http://www.okcupid.com/}
                     title: Senior Data Scientist
                     location: New York, NY
                     when: Jan 2013 —  Present
@@ -96,8 +95,7 @@
                         - Worked with designers to implement and test improvements, creating millions in incremental revenue
                         - Developed recommendation system to give paying users a metered boost in activity using control theory
                 -
-                    company: OkCupid
-                    company_url: http://www.okcupid.com/
+                    company: {name: OkCupid, url: http://www.okcupid.com/}
                     title: CTO / Director of Technology
                     location: New York, NY
                     when: Jun 2010 —  Jan 2013
@@ -108,8 +106,7 @@
                         - Oversaw technical due diligence process during acquisition by IAC
                         - Over 10 patents pending for technical innovations in OkCupid products
                 -
-                    company: OkCupid
-                    company_url: http://www.okcupid.com/
+                    company: {name: OkCupid, url: http://www.okcupid.com/}
                     title: Software Engineer
                     location: New York, NY
                     when: Jul 2007 —  Jun 2010
@@ -119,8 +116,7 @@
                         - Engineered statistical method to give users a relevant next matching question using past answers
                         - Used Bayesian methods to improve estimates of user properties based on small amounts of data
                 -
-                    company: EPFL
-                    company_url: http://www.epfl.ch/
+                    company: {name: EPFL, url: http://www.epfl.ch/}
                     title: Bioinformatics Researcher
                     location: Lausanne, Switzerland
                     when: Mar 2006 —  Jun 2007
@@ -134,23 +130,27 @@
                     other: true
                     items:
                         -
-                            company: TechStars NYC
-                            company_url: http://www.techstars.com/program/locations/nyc/
+                            company:
+                                name: Techstars NYC
+                                url: http://www.techstars.com/program/locations/nyc/
                             title: Mentor
                             when: 2013
                         -
-                            company: iTeleport
-                            company_url: http://www.iteleportmobile.com/
+                            company:
+                                name: iTeleport
+                                url: http://www.iteleportmobile.com/
                             title: Contract iPhone Developer
                             when: 2009
                         -
-                            company: Green Hills Software
-                            company_url: http://www.ghs.com/
+                            company:
+                                name: Green Hills Software
+                                url: http://www.ghs.com/
                             title: Software Engineering Intern
                             when: 2005
                         -
-                            company: CMU Speech Software Group
-                            company_url: http://www.speech.cs.cmu.edu/
+                            company:
+                                name: CMU Speech Software Group
+                                url: http://www.speech.cs.cmu.edu/
                             title: Research Intern
                             when: 2004
 
@@ -158,7 +158,7 @@
 
         <script id="resume-template" type="text/x-handlebars-template">
             <div class="content">
-                <div class="myrow heading">
+                <div class="section heading">
                     <div class="left">
                         <p class="h1 name">{{name}}</p>
                         <span class="title">{{title}}</span> &mdash;
@@ -178,7 +178,9 @@
                 {{#section education name="Education"}}
                     {{#each this}}
                         <div class="school">
-                            <div class="group-name school-name"><a href="{{url}}">{{name}}</a></div>
+                            <div class="group-name school-name">
+                                <a href="{{url}}">{{name}}</a>
+                            </div>
                             <div class="pull-right text-right">
                                 <span class="date">{{when}}</span><br>
                                 <span class="location">{{location}}</span><br>
@@ -206,7 +208,8 @@
                             <div class="clearfix">
                                 <div class="pull-right date">{{when}}</div>
                                 <span class="title">{{title}}</span>
-                                <span class="company-braces">&#123;</span><span class="group-name">{{#if company_url}}<a href="{{company_url}}">{{company}}</a>{{else}}{{company}}{{/if}}</span><span class="company-braces">&#125;</span>
+                                {{#company company}}
+                                {{/company}}
                             </div>
                             {{/each}}
                         {{else}}
@@ -215,9 +218,8 @@
                             <span class="location">{{location}}</span><br>
                         </div>
                             <span class="title">{{title}}</span>
-                            {{#if company}}
-                            <span class="company-braces">&#123;</span><span class="group-name">{{#if company_url}}<a href="{{company_url}}">{{company}}</a>{{else}}{{company}}{{/if}}</span><span class="company-braces">&#125;</span>
-                            {{/if}}
+                            {{#company company}}
+                            {{/company}}
                         <br>
                             {{#ul highlights}}
                                 {{{this}}}
@@ -239,26 +241,45 @@
             </div>
         </script>
 
+        <script id="company-template" type="text/x-handlebars-template">
+            {{#if this}}
+                <span class="company-braces">&#123;</span><span class="group-name">{{#if url}}<a href="{{url}}">{{name}}</a>{{else}}{{name}}{{/if}}</span><span class="company-braces">&#125;</span>
+            {{/if}}
+        </script>
+
         <script>
-            var section_template_source = $("#section-template").html();
-            var section_template = Handlebars.compile(section_template_source);
+            var section_template = Handlebars.compile($("#section-template").html());
+            var company_template = Handlebars.compile($("#company-template").html());
 
             Handlebars.registerHelper('section', function(inner_context, options) {
                 var inner_html = new Handlebars.SafeString(options.fn(inner_context));
                 var outer_context = {name: options.hash.name, inner: inner_html};
                 return section_template(outer_context);
             });
+            Handlebars.registerHelper('company', function(company, options) {
+                return company_template(company);
+            });
         </script>
 
+    </head>
+    <body>
         <script>
-            var template_source = $("#resume-template").html();
-            var template = Handlebars.compile(template_source);
+            var template = Handlebars.compile($("#resume-template").html());
             var yaml_source = $("#resume-yaml").html();
             var context = jsyaml.load(yaml_source);
             var html = template(context);
-            document.write(html);
+            $('body').append(html);
         </script>
-    </head>
-    <body>
+
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-31867604-2', 'auto');
+            ga('send', 'pageview');
+
+        </script>
     </body>
 </html>
