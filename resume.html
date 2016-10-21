@@ -23,19 +23,16 @@
 
         <script id="resume-yaml" type="text/yaml">
             name: Tom Quisel
-            title: Data Scientist
+            title: Data Scientist & Tech Lead
             location: Santa Barbara, CA
             links:
-                -
-                    name: tomquisel.com
-                    url: http://tomquisel.com
-                -
-                    name: github.com/tomquisel
-                    url: https://github.com/tomquisel
-                -
-                    name: linkedin.com/in/tomquisel
-                    url: https://www.linkedin.com/in/tomquisel
-            objective: Use computer science, statistics, and analytical thinking to tackle the most challenging and important problems that the world has to offer.
+                - name: github.com/tomquisel
+                  url: https://github.com/tomquisel
+                - name: linkedin.com/in/tomquisel
+                  url: https://www.linkedin.com/in/tomquisel
+                - name: scholar.google.com/tomquisel
+                  url: https://scholar.google.com/citations?user=FJ-NrjwAAAAJ
+            objective: Use data science, analytical thinking, and leadership skills to tackle the most challenging and important problems that the world has to offer.
             education:
                 -
                     name: Carnegie Mellon University
@@ -64,36 +61,44 @@
             skills:
                 -
                     name: Languages
-                    items: python, R, C/C++, Java, SQL, Bash, JavaScript
+                    items: python, R, C/C++, Java, SQL, Ruby, Scala, Bash, JavaScript
                 -
                     name: Data Analysis
-                    items: pandas, scipy, numpy, scikit-learn, statsmodels, R{forecast}, Weka, matplotlib, ggplot2
+                    items: pandas, scipy, scikit-learn, TensorFlow, Keras, Weka, Jupyter Notebook, pymc
                 -
                     name: Big Data
-                    items: Elasticsearch, MongoDB, MySQL, PostgreSQL, MapReduce, Twitter Storm, Redis
+                    items: Elasticsearch, MongoDB, PostgreSQL, Redis, Spark, Hadoop
                 -
                     name: Techniques
-                    items: Classification, Regression, Function Optimization, Natural Language Processing, Bayesian Statistics, Significance Testing, Experimental Design, Time Series Analysis, Dimensonality Reduction, Control Systems
+                    items: Classification, Regression, Deep Learning, Function Optimization, Natural Language Processing, Bayesian Statistics, Significance Testing, Experimental Design, Time Series Analysis, Dimensonality Reduction, Feature Selection, Control Systems
             experience:
+                -
+                    company: {name: Evidation Health, url: http://www.evidation.com/}
+                    title: Senior Data Scientist
+                    location: Santa Barbara, CA
+                    when: Jan 2015 —  Present
+                    highlights:
+                        - Published on <a href="http://www.jmir.org/2016/6/e127/">crowdsourced diagnosis</a> and <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0152504">activity tracking</a>
+                        - <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=FJ-NrjwAAAAJ&citation_for_view=FJ-NrjwAAAAJ:Y0pCki6q_DkC">Applied deep learning</a> to behavioral timeseries to understand patient health
+                        - Developed hospital readmission prediction algorithm using scikit-learn
+                        - Built big data analysis system using Spark, HDFS, Elasticsearch, Luigi, Caravel, and scikit-learn
                 -
                     company: {name: Self}
                     title: Data Science Consultant
                     location: Santa Barbara, CA
                     when: July 2013 — Present
                     highlights:
-                        - Technical advisor for The Impact Engine, a startup incubator
-                        - Built Linkedin user similarity algorithm for startup Collectively
-                        - Performed big data analysis for the Dataclysm book with Christian Rudder
+                        - Mentored startup founders involved in the Impact Engine, Techstars NYC
+                        - Led projects in recommendation, search, big data, and machine learning
                 -
                     company: {name: OkCupid, url: http://www.okcupid.com/}
                     title: Senior Data Scientist
                     location: New York, NY
                     when: Jan 2013 —  Present
                     highlights:
-                        - Used time series techniques to develop forecasts for key site metrics
-                        - Created significance testing framework for email promotions and premium conversions
-                        - Worked with designers to implement and test improvements, creating millions in incremental revenue
-                        - Developed recommendation system to give paying users a metered boost in activity using control theory
+                        - Created significance testing framework for easy custom A/B tests
+                        - Led project to improve A-List retention & conversions, creating millions in incremental revenue
+                        - Developed recommendation system to give users a metered boost in activity using control theory
                 -
                     company: {name: OkCupid, url: http://www.okcupid.com/}
                     title: CTO / Director of Technology
@@ -111,7 +116,7 @@
                     location: New York, NY
                     when: Jul 2007 —  Jun 2010
                     highlights:
-                        - Modeled response probabilities for messages sent on OkCupid, found that feature engineering and linear regression generalized better than complex learners
+                        - Built message passing, email delivery, and text search distributed systems
                         - Devised novel method for confidence adjusting compatibility scores based on Monte Carlo methods
                         - Engineered statistical method to give users a relevant next matching question using past answers
                         - Used Bayesian methods to improve estimates of user properties based on small amounts of data
@@ -129,12 +134,6 @@
                 -
                     other: true
                     items:
-                        -
-                            company:
-                                name: Techstars NYC
-                                url: http://www.techstars.com/program/locations/nyc/
-                            title: Mentor
-                            when: 2013
                         -
                             company:
                                 name: iTeleport
